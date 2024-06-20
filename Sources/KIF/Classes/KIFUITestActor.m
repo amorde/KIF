@@ -549,11 +549,7 @@ static BOOL KIFUITestActorAnimationsEnabled = YES;
         }
     }];
 
-    NSTimeInterval remainingWaitTime = 0.01 - [KIFTypist keystrokeDelay];
-    if (remainingWaitTime > 0) {
-        CFRunLoopRunInMode(UIApplicationCurrentRunMode, remainingWaitTime, false);
-    }
-    [self waitForAnimationsToFinish];
+    [self waitForTimeInterval:0.1 relativeToAnimationSpeed:YES];
 }
 
 - (void)enterText:(NSString *)text intoViewWithAccessibilityLabel:(NSString *)label
