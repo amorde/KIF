@@ -553,6 +553,7 @@ static BOOL KIFUITestActorAnimationsEnabled = YES;
     if (remainingWaitTime > 0) {
         CFRunLoopRunInMode(UIApplicationCurrentRunMode, remainingWaitTime, false);
     }
+    [self waitForAnimationsToFinish];
 }
 
 - (void)enterText:(NSString *)text intoViewWithAccessibilityLabel:(NSString *)label
