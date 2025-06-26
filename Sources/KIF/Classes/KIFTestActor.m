@@ -137,6 +137,7 @@ static NSTimeInterval KIFTestStepDefaultMainThreadDispatchStabilizationTimeout =
 static NSTimeInterval KIFTestStepDefaultTimeout = 10.0;
 static NSTimeInterval KIFTestStepDelay = 0.1;
 static NSTimeInterval KIFTestStepFirstResponderTimeout = 0.5;
+static BOOL KIFEnableActivityLogging = NO;
 
 
 + (NSTimeInterval)defaultAnimationWaitingTimeout
@@ -200,6 +201,16 @@ static NSTimeInterval KIFTestStepFirstResponderTimeout = 0.5;
     KIFTestStepFirstResponderTimeout = firstResponderTimeout;
 }
 
++ (BOOL)enableActivityLogging
+{
+    return KIFEnableActivityLogging;
+}
+
++ (void)setEnableActivityLogging:(BOOL)enableActivityLogging
+{
+    KIFEnableActivityLogging = enableActivityLogging;
+}
+
 
 #pragma mark Generic tests
 
@@ -242,6 +253,35 @@ static NSTimeInterval KIFTestStepFirstResponderTimeout = 0.5;
         KIFTestWaitCondition((([NSDate timeIntervalSinceReferenceDate] - startTime) >= timeInterval), error, @"Waiting for time interval to expire.");
         return KIFTestStepResultSuccess;
     } timeout:timeInterval + 1];
+}
+
+- (void)runActivityNamed:(NSString *)name block:(KIFActivityBlock)block;
+{
+    NSParameterAssert(name);
+    NSParameterAssert(block);
+    if (KIFTestActor.enableActivityLogging) {
+        [XCTContext runActivityNamed:name block:^(id<XCTActivity>  _Nonnull activity) {
+            KIFActivity *kifActivity = [[KIFActivity alloc] initWithActivity:activity name:name];
+            if ([self.delegate respondsToSelector:@selector(kifActor:willStartActivity:)]) {
+                [self.delegate kifActor:self willStartActivity:kifActivity];
+            }
+            block(kifActivity);
+            [kifActivity finish];
+            if ([self.delegate respondsToSelector:@selector(kifActor:didFinishActivity:)]) {
+                [self.delegate kifActor:self didFinishActivity:kifActivity];
+            }
+        }];
+    } else {
+        KIFActivity *kifActivity = [[KIFActivity alloc] initWithActivity:nil name:name];
+        if ([self.delegate respondsToSelector:@selector(kifActor:willStartActivity:)]) {
+            [self.delegate kifActor:self willStartActivity:kifActivity];
+        }
+        block(kifActivity);
+        [kifActivity finish];
+        if ([self.delegate respondsToSelector:@selector(kifActor:didFinishActivity:)]) {
+            [self.delegate kifActor:self didFinishActivity:kifActivity];
+        }
+    }
 }
 
 @end

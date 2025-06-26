@@ -186,6 +186,13 @@ typedef void (^KIFTestCompletionBlock)(KIFTestStepResult result, NSError *error)
  */
 + (void)setFirstResponderTimeout:(NSTimeInterval)firstResponderTimeout;
 
+/**
+ Whether to enable logging `XCTActivity` entries for each step taken by an actor.
+
+ If this is `NO`, then any `KIFActivity` sent to `KIFTestActorDelegate` will have it's `activity` property set to `nil`.
+ */
+@property (nonatomic, class) BOOL enableActivityLogging;
+
 /*!
  @abstract Fails the test.
  @discussion Mostly useful for test debugging or as a placeholder when building new tests.
@@ -213,10 +220,16 @@ typedef void (^KIFTestCompletionBlock)(KIFTestStepResult result, NSError *error)
 
 @end
 
+@class KIFActivity;
+
 @protocol KIFTestActorDelegate <NSObject>
 
 - (void)failWithException:(NSException *)exception stopTest:(BOOL)stop;
 - (void)failWithExceptions:(NSArray *)exceptions stopTest:(BOOL)stop;
+
+@optional
+- (void)kifActor:(KIFTestActor *)actor willStartActivity:(KIFActivity *)activity;
+- (void)kifActor:(KIFTestActor *)actor didFinishActivity:(KIFActivity *)activity;
 
 @end
 

@@ -97,6 +97,8 @@
 		2229D5E525BEF47D0093296C /* KIFTestActor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2229D59125BEF47D0093296C /* KIFTestActor.m */; };
 		2229D5E625BEF47D0093296C /* KIFUITestActor.h in Headers */ = {isa = PBXBuildFile; fileRef = 2229D59225BEF47D0093296C /* KIFUITestActor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2229D5E725BEF47D0093296C /* UIDatePicker+KIFPrivateAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 2229D59425BEF47D0093296C /* UIDatePicker+KIFPrivateAPI.h */; };
+		251987982DB8575D0024A0CB /* KIFActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 251987972DB8575D0024A0CB /* KIFActivity.m */; };
+		251987992DB8575D0024A0CB /* KIFActivity.h in Headers */ = {isa = PBXBuildFile; fileRef = 251987962DB8575D0024A0CB /* KIFActivity.h */; };
 		2CDEE1CB181DBED200DF6E63 /* PickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CDEE1CA181DBED200DF6E63 /* PickerController.m */; };
 		3812FB611A1212A700335733 /* AnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3812FB601A1212A700335733 /* AnimationViewController.m */; };
 		3812FB631A12188700335733 /* WaitForAnimationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3812FB621A12188700335733 /* WaitForAnimationTests.m */; };
@@ -314,6 +316,8 @@
 		2229D59225BEF47D0093296C /* KIFUITestActor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIFUITestActor.h; sourceTree = "<group>"; };
 		2229D59425BEF47D0093296C /* UIDatePicker+KIFPrivateAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDatePicker+KIFPrivateAPI.h"; sourceTree = "<group>"; };
 		22B1372525D6E27F00D88061 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/IOKit.framework; sourceTree = DEVELOPER_DIR; };
+		251987962DB8575D0024A0CB /* KIFActivity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KIFActivity.h; sourceTree = "<group>"; };
+		251987972DB8575D0024A0CB /* KIFActivity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KIFActivity.m; sourceTree = "<group>"; };
 		2CDEE1CA181DBED200DF6E63 /* PickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerController.m; sourceTree = "<group>"; };
 		2CED883D181F5EE1005ABD20 /* PickerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerTests.m; sourceTree = "<group>"; };
 		3812FB601A1212A700335733 /* AnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationViewController.m; sourceTree = "<group>"; };
@@ -605,6 +609,8 @@
 				2229D57C25BEF47D0093296C /* KIFUIViewTestActor.m */,
 				2229D57D25BEF47D0093296C /* UIAutomationHelper.h */,
 				2229D58C25BEF47D0093296C /* UIAutomationHelper.m */,
+				251987962DB8575D0024A0CB /* KIFActivity.h */,
+				251987972DB8575D0024A0CB /* KIFActivity.m */,
 			);
 			name = Classes;
 			path = Sources/KIF/Classes;
@@ -829,6 +835,7 @@
 				2229D5AA25BEF47D0093296C /* UIView-KIFAdditions.h in Headers */,
 				ACA242E92C3DB4EA00E6F1B6 /* UIAccessibilityCustomAction+KIFAdditions.h in Headers */,
 				2229D5CD25BEF47D0093296C /* KIFTestStepValidation.h in Headers */,
+				251987992DB8575D0024A0CB /* KIFActivity.h in Headers */,
 				2229D5C225BEF47D0093296C /* LoadableCategory.h in Headers */,
 				2229D5D625BEF47D0093296C /* KIFTestCase.h in Headers */,
 				2229D5C825BEF47D0093296C /* IOHIDEvent+KIF.h in Headers */,
@@ -998,6 +1005,7 @@
 				2229D5BB25BEF47D0093296C /* NSFileManager-KIFAdditions.m in Sources */,
 				2229D5DB25BEF47D0093296C /* KIFUITestActor-ConditionalTests.m in Sources */,
 				2229D59725BEF47D0093296C /* KIFTouchVisualizerViewCoordinator.m in Sources */,
+				251987982DB8575D0024A0CB /* KIFActivity.m in Sources */,
 				2229D5B125BEF47D0093296C /* XCTestCase-KIFAdditions.m in Sources */,
 				2229D5A225BEF47D0093296C /* CGGeometry-KIFAdditions.m in Sources */,
 				8E654FD029DA2FE7007F7811 /* UIWindow+KIFSwizzle.m in Sources */,
