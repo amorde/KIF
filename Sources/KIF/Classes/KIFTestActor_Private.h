@@ -1,5 +1,6 @@
 #import "KIFTestActor.h"
-#import "KIFActivity.h"
+
+@class KIFActivity;
 
 typedef void(^KIFActivityBlock)(KIFActivity *activity);
 
